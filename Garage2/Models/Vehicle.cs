@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-// Anders lägger till kommentar
-
 namespace Garage2.Models {
     public class Vehicle {
         public int Id { get; set; }
