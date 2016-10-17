@@ -16,7 +16,7 @@ namespace Garage2.Migrations {
                 v => v.RegNr,
                 new Vehicle {
                     RegNr = "ABC123",
-                    Type = VehicleType.Aeroplane,
+                    Type = VehicleType.Flygplan,
                     Color = "Blue",
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
@@ -25,7 +25,7 @@ namespace Garage2.Migrations {
                 },
                 new Vehicle {
                     RegNr = "EFG456",
-                    Type = VehicleType.Bus,
+                    Type = VehicleType.Buss,
                     Color = "Red",
                     CheckInTime = DateTime.Now,
                     Tyres = 6,
@@ -34,7 +34,7 @@ namespace Garage2.Migrations {
                 },
                 new Vehicle {
                     RegNr = "HIJ789",
-                    Type = VehicleType.Car,
+                    Type = VehicleType.Bil,
                     Color = "Black",
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
