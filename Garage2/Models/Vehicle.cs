@@ -4,10 +4,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-
-// hej hej 
-// Ny kommentar!
-
 namespace Garage2.Models {
     public class Vehicle {
         public int Id { get; set; }
@@ -26,6 +22,7 @@ namespace Garage2.Models {
         [Display(Name = "Färg")]
         public string Color { get; set; }
 
+        [Display(Name = "Parkeringstid")]
         public DateTime CheckInTime { get; set; }
 
         [Required]
