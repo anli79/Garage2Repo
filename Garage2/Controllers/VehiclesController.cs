@@ -130,6 +130,45 @@ namespace Garage2.Controllers
             return RedirectToAction("Index");
         }
 
+
+        // GET: Vehicles/SearchVehicles
+        public ActionResult SearchVehicles() {
+            return View();
+        }
+
+        // Post: Vehicles/SearchVehicles
+        [HttpPost]
+        // public ActionResult SearchVehicles([Bind(Include = "Id,Type,RegNr,Color,CheckInTime,Tyres,Brand,Model")] Vehicle vehicle) {
+        public ActionResult SearchVehicles(QueryObj queryObj) {
+            // return RedirectToAction("Index");
+            return RedirectToAction("SearchResult", queryObj);
+
+        }
+
+        // GET: Vehicles
+        public ActionResult SearchResult(QueryObj queryObj) {
+            var query = db.Vehicles.ToList();
+
+            if (queryObj.Type != null) {
+                query = query.Where(v => v.Type == queryObj.Type).ToList();
+            }
+
+            if (queryObj.RegNr != null) {
+                query = query.Where(v => v.RegNr.ToLower().StartsWith(queryObj.RegNr.ToLower())).ToList();
+            }
+
+            if (queryObj.Color != null) {
+                query = query.Where(v => v.Color.ToLower().StartsWith(queryObj.Color.ToLower())).ToList();
+            }
+
+            if (queryObj.Brand != null) {
+                query = query.Where(v => v.Brand.ToLower().StartsWith(queryObj.Brand.ToLower())).ToList();
+            }
+
+            return View(query);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

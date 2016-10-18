@@ -151,6 +151,7 @@
       <DependentUpon>201610181232537_Receipt_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\QueryObj.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -194,6 +195,8 @@
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\Vehicles\SearchVehicles.cshtml" />
+    <Content Include="Views\Vehicles\SearchResult.cshtml" />
     <Content Include="Views\Vehicles\Receipt.cshtml" />
   </ItemGroup>
   <ItemGroup>
