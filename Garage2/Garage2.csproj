@@ -142,6 +142,14 @@
     <Compile Include="Migrations\201610171240337_diverse.Designer.cs">
       <DependentUpon>201610171240337_diverse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610181219264_Receipt.cs" />
+    <Compile Include="Migrations\201610181219264_Receipt.Designer.cs">
+      <DependentUpon>201610181219264_Receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610181232537_Receipt_2.cs" />
+    <Compile Include="Migrations\201610181232537_Receipt_2.Designer.cs">
+      <DependentUpon>201610181232537_Receipt_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,6 +194,7 @@
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\Vehicles\Receipt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -204,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610171240337_diverse.resx">
       <DependentUpon>201610171240337_diverse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610181219264_Receipt.resx">
+      <DependentUpon>201610181219264_Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610181232537_Receipt_2.resx">
+      <DependentUpon>201610181232537_Receipt_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

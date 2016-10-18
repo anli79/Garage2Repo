@@ -22,8 +22,29 @@ namespace Garage2.Models {
         [Display(Name = "Färg")]
         public string Color { get; set; }
 
-        [Display(Name = "Parkeringstid")]
+        [Display(Name = "In-checkningstid")]
         public DateTime CheckInTime { get; set; }
+
+        [Display(Name = "Parkeringstid")]
+        public string ParkingTime {
+            get {
+                TimeSpan duration = DateTime.Now - CheckInTime;
+                var hours = duration.Days * 24 + duration.Hours;
+                var minutes = duration.Minutes;
+                return $"{hours}h {minutes}m";
+                //return $"{duration.Days} dagar, {duration.Hours} timmar, {duration.Minutes} minuter";
+            }
+        }
+
+        public string Price {
+            get {
+                TimeSpan duration = DateTime.Now - CheckInTime;
+                int pricePerHour = 60;
+                int totalPrice = ((duration.Days * 24 + duration.Hours) * 60) + (duration.Minutes % pricePerHour);
+                return $"{totalPrice} kr";
+                //return $"{duration.Days} dagar, {duration.Hours} timmar, {duration.Minutes} minuter";
+            }
+        }
 
         [Required]
         [Display(Name = "Antal hjul")]

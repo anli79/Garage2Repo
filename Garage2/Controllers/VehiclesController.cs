@@ -21,6 +21,18 @@ namespace Garage2.Controllers
             return View(db.Vehicles.ToList());
         }
 
+        // GET: Receipt
+        public ActionResult Receipt(int? id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Vehicle vehicle = db.Vehicles.Find(id);
+            if (vehicle == null) {
+                return HttpNotFound();
+            }
+            return View(vehicle);
+        }
+
         // GET: Vehicles/Details/5
         public ActionResult Details(int? id)
         {
@@ -53,7 +65,7 @@ namespace Garage2.Controllers
             {
                 vehicle.CheckInTime = DateTime.Now;
                 db.Vehicles.Add(vehicle);
-                db.SaveChanges();
+                db.SaveChanges(); 
                 return RedirectToAction("Index");
             }
 
@@ -111,6 +123,7 @@ namespace Garage2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            Receipt(id);
             Vehicle vehicle = db.Vehicles.Find(id);
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
