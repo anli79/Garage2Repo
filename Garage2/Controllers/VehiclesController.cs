@@ -147,25 +147,25 @@ namespace Garage2.Controllers
 
         // GET: Vehicles
         public ActionResult SearchResult(QueryObj queryObj) {
-            var query = db.Vehicles.ToList();
+            var query = db.Vehicles.Where(v => true);
 
             if (queryObj.Type != null) {
-                query = query.Where(v => v.Type == queryObj.Type).ToList();
+                query = query.Where(v => v.Type == queryObj.Type);
             }
 
             if (queryObj.RegNr != null) {
-                query = query.Where(v => v.RegNr.ToLower().StartsWith(queryObj.RegNr.ToLower())).ToList();
+                query = query.Where(v => v.RegNr.ToLower().StartsWith(queryObj.RegNr.ToLower()));
             }
 
             if (queryObj.Color != null) {
-                query = query.Where(v => v.Color.ToLower().StartsWith(queryObj.Color.ToLower())).ToList();
+                query = query.Where(v => v.Color.ToLower().StartsWith(queryObj.Color.ToLower()));
             }
 
             if (queryObj.Brand != null) {
-                query = query.Where(v => v.Brand.ToLower().StartsWith(queryObj.Brand.ToLower())).ToList();
+                query = query.Where(v => v.Brand.ToLower().StartsWith(queryObj.Brand.ToLower()));
             }
 
-            return View(query);
+            return View(query.ToList());
         }
 
 
