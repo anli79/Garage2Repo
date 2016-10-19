@@ -19,14 +19,10 @@ namespace Garage2.Controllers {
         }
 
         // GET: Receipt
-        //public ActionResult Receipt(int id) {
         public ActionResult Receipt(Vehicle vehicle) {
-            //Vehicle vehicle = db.Vehicles.Find(id);
             if (vehicle == null) {
                 return HttpNotFound();
             }
-            //db.Vehicles.Remove(vehicle);
-            //db.SaveChanges();
             return View(vehicle);
         }
 
@@ -108,9 +104,6 @@ namespace Garage2.Controllers {
             Vehicle vehicle = db.Vehicles.Find(id);
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
-            //var obj = new { id };
-
-            //return RedirectToAction("Receipt", obj);
             return RedirectToAction("Receipt", vehicle);
         }
 

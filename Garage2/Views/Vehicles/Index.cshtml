@@ -4,13 +4,8 @@
     ViewBag.Title = "Garage";
 }
 
-<h2>Garage</h2>
+<h2>Alla Fordon</h2>
 
-<h4>Fordon</h4>
-
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
 <table class="table">
     <tr>
         <th>
@@ -25,15 +20,6 @@
         <th>
             @Html.DisplayNameFor(model => model.CheckInTime)
         </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.Tyres)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brand)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>*@
         <th></th>
     </tr>
 
@@ -51,17 +37,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CheckInTime)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Tyres)
-            </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>*@
-            <td>
-                @*  @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
                 @Html.ActionLink("Detaljer", "Details", new { id = item.Id }) |
                 @Html.ActionLink("Checka ut", "Delete", new { id = item.Id })
 
