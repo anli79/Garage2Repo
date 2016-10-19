@@ -9,20 +9,28 @@ using System.Web.Mvc;
 using Garage2.DAL;
 using Garage2.Models;
 
-namespace Garage2.Controllers
-{
-    public class VehiclesController : Controller
-    {
+namespace Garage2.Controllers {
+    public class VehiclesController : Controller {
         private VehicleDBContext db = new VehicleDBContext();
 
         // GET: Vehicles
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
             return View(db.Vehicles.ToList());
         }
 
         // GET: Receipt
-        public ActionResult Receipt(int? id) {
+        public ActionResult Receipt(int id) {
+            Vehicle vehicle = db.Vehicles.Find(id);
+            if (vehicle == null) {
+                return HttpNotFound();
+            }
+            db.Vehicles.Remove(vehicle);
+            db.SaveChanges();
+            return View(vehicle);
+        }
+
+        // GET: Vehicles/Details/5
+        public ActionResult Details(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -33,24 +41,8 @@ namespace Garage2.Controllers
             return View(vehicle);
         }
 
-        // GET: Vehicles/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Vehicle vehicle = db.Vehicles.Find(id);
-            if (vehicle == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vehicle);
-        }
-
         // GET: Vehicles/Create
-        public ActionResult Create()
-        {
+        public ActionResult Create() {
             return View();
         }
 
@@ -59,13 +51,11 @@ namespace Garage2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Type,RegNr,Color,CheckInTime,Tyres,Brand,Model")] Vehicle vehicle)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult Create([Bind(Include = "Id,Type,RegNr,Color,CheckInTime,Tyres,Brand,Model")] Vehicle vehicle) {
+            if (ModelState.IsValid) {
                 vehicle.CheckInTime = DateTime.Now;
                 db.Vehicles.Add(vehicle);
-                db.SaveChanges(); 
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -73,15 +63,12 @@ namespace Garage2.Controllers
         }
 
         // GET: Vehicles/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult Edit(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Vehicle vehicle = db.Vehicles.Find(id);
-            if (vehicle == null)
-            {
+            if (vehicle == null) {
                 return HttpNotFound();
             }
             return View(vehicle);
@@ -92,10 +79,8 @@ namespace Garage2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Type,RegNr,Color,CheckInTime,Tyres,Brand,Model")] Vehicle vehicle)
-        {
-            if (ModelState.IsValid)
-            {
+        public ActionResult Edit([Bind(Include = "Id,Type,RegNr,Color,CheckInTime,Tyres,Brand,Model")] Vehicle vehicle) {
+            if (ModelState.IsValid) {
                 db.Entry(vehicle).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -104,15 +89,12 @@ namespace Garage2.Controllers
         }
 
         // GET: Vehicles/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult Delete(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Vehicle vehicle = db.Vehicles.Find(id);
-            if (vehicle == null)
-            {
+            if (vehicle == null) {
                 return HttpNotFound();
             }
             return View(vehicle);
@@ -121,13 +103,14 @@ namespace Garage2.Controllers
         // POST: Vehicles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Receipt(id);
-            Vehicle vehicle = db.Vehicles.Find(id);
-            db.Vehicles.Remove(vehicle);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+        public ActionResult DeleteConfirmed(int id) {
+            //Receipt(id);
+            //Vehicle vehicle = db.Vehicles.Find(id);
+            //db.Vehicles.Remove(vehicle);
+            //db.SaveChanges();
+            var obj = new { id, test = "foo", hej = true, siffra = 7 };
+          
+            return RedirectToAction("Receipt", obj);
         }
 
 
@@ -169,10 +152,8 @@ namespace Garage2.Controllers
         }
 
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing) {
                 db.Dispose();
             }
             base.Dispose(disposing);
