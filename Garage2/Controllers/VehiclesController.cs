@@ -123,7 +123,7 @@ namespace Garage2.Controllers {
         }
 
         // GET: Vehicles
-        public ActionResult SearchResult(QueryObj queryObj) {
+        public ActionResult SearchResult(string sort, QueryObj queryObj) {
             var query = db.Vehicles.Where(v => true);
 
             if (queryObj.Type != null) {
@@ -144,7 +144,6 @@ namespace Garage2.Controllers {
 
             return View(query.ToList());
         }
-
 
         protected override void Dispose(bool disposing) {
             if (disposing) {
