@@ -15,7 +15,7 @@ namespace Garage2.Models {
         [Required]
         [MinLength(6)]
         [Display(Name = "Regnr")]
-        [StringLength(10)]
+        [StringLength(10)]   
         public string RegNr { get; set; }
 
         [Required]
