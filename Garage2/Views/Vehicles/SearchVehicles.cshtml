@@ -7,7 +7,7 @@
     ViewBag.Title = "Sök Fordon";
 }
 
-<h2>Sök Fordon</h2>
+<h2>Sök fordon</h2>
 
 
 @using (Html.BeginForm()) 
@@ -15,7 +15,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        @*<h4>Vehicle</h4>*@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -55,14 +54,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="SÖK" class="btn btn-default" />
+                <input type="submit" value="Sök" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Alla fordon", "Index")
+    @Html.ActionLink("Visa alla fordon", "Index")
 </div>
 
 @section Scripts {
