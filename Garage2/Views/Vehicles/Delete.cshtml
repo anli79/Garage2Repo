@@ -4,10 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Checka ut</h2>
+<h2>Checka ut fordon</h2>
 
 <div>
-    <h4>Fordon</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -72,8 +71,13 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Checka ut" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Checka ut" class="btn btn-default" />
+            </div>
         </div>
     }
+</div>
+
+<div>
+    @Html.ActionLink("Visa alla fordon", "Index")
 </div>
