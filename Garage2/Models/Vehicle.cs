@@ -8,17 +8,17 @@ namespace Garage2.Models {
     public class Vehicle {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Fordonstyp måste anges!")]
         [Display(Name = "Fordonstyp")]      
         public VehicleType Type { get; set; }
 
-        [Required]
-        [MinLength(6)]
+        [Required(ErrorMessage = "Regnr måste anges!")]
+        [MinLength(6, ErrorMessage = "Regnr måste vara minst 6 tecken!")]
         [Display(Name = "Regnr")]
-        [StringLength(10)]   
+        [StringLength(10, ErrorMessage = "Regnr får vara högst 10 tecken lång!")]
         public string RegNr { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Färg måste anges!")]
         [Display(Name = "Färg")]
         public string Color { get; set; }
 
@@ -45,19 +45,19 @@ namespace Garage2.Models {
             }
         }
 
-        [Required]
+        [Required(ErrorMessage = "Antal hjul måste anges!")]
         [Display(Name = "Antal hjul")]
         [Range(0,int.MaxValue, ErrorMessage = "Måste vara ett positivt tal!")]
         public int Tyres { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Märke måste anges!")]
         [Display(Name = "Märke")]
-        [StringLength(10)]
+        [StringLength(10, ErrorMessage = "Märke får vara högst 10 tecken!")]
         public string Brand { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Modell måste anges!")]
         [Display(Name = "Modell")]
-        [StringLength(10)]
+        [StringLength(10, ErrorMessage = "Modell får vara högst 10 tecken!")]
         public string Model { get; set; }
     }
 

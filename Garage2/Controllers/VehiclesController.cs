@@ -18,15 +18,15 @@ namespace Garage2.Controllers {
             var model = db.Vehicles.OrderBy(m => m.RegNr);
 
             if (sort == "type") {
-                model = model.OrderBy(m => m.Type);
+                model = model.OrderByDescending(m => m.Type);
             }
 
             if (sort == "regnr") {
-                model = model.OrderBy(m => m.RegNr);
+                model = model.OrderByDescending(m => m.RegNr);
             }
 
             if (sort == "color") {
-                model = model.OrderBy(m => m.Color);
+                model = model.OrderByDescending(m => m.Color);
             }
 
             return View(model.ToList());
