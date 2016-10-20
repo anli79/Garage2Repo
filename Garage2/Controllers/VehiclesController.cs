@@ -14,8 +14,22 @@ namespace Garage2.Controllers {
         private VehicleDBContext db = new VehicleDBContext();
 
         // GET: Vehicles
-        public ActionResult Index() {
-            return View(db.Vehicles.ToList());
+        public ActionResult Index(string sort) {
+            var model = db.Vehicles.OrderBy(m => m.RegNr);
+
+            if (sort == "type") {
+                model = model.OrderBy(m => m.Type);
+            }
+
+            if (sort == "regnr") {
+                model = model.OrderBy(m => m.RegNr);
+            }
+
+            if (sort == "color") {
+                model = model.OrderBy(m => m.Color);
+            }
+
+            return View(model.ToList());
         }
 
         // GET: Receipt
@@ -123,9 +137,9 @@ namespace Garage2.Controllers {
         }
 
         // GET: Vehicles
-        public ActionResult SearchResult(QueryObj queryObj) {
+        public ActionResult SearchResult(string sort, QueryObj queryObj) {
             var query = db.Vehicles.Where(v => true);
-
+        
             if (queryObj.Type != null) {
                 query = query.Where(v => v.Type == queryObj.Type);
             }
@@ -142,9 +156,8 @@ namespace Garage2.Controllers {
                 query = query.Where(v => v.Brand.ToLower().StartsWith(queryObj.Brand.ToLower()));
             }
 
-            return View(query.ToList());
+            return View(query.OrderBy(v => v.RegNr).ToList()); // Always sort by regnr
         }
-
 
         protected override void Dispose(bool disposing) {
             if (disposing) {
