@@ -154,8 +154,17 @@
     <Compile Include="Migrations\201610200845470_spotnr.Designer.cs">
       <DependentUpon>201610200845470_spotnr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610201154239_Statistics.cs" />
+    <Compile Include="Migrations\201610201154239_Statistics.Designer.cs">
+      <DependentUpon>201610201154239_Statistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610201500372_Statistics_2.cs" />
+    <Compile Include="Migrations\201610201500372_Statistics_2.Designer.cs">
+      <DependentUpon>201610201500372_Statistics_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\QueryObj.cs" />
+    <Compile Include="Models\Statistics.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -231,6 +240,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610200845470_spotnr.resx">
       <DependentUpon>201610200845470_spotnr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610201154239_Statistics.resx">
+      <DependentUpon>201610201154239_Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610201500372_Statistics_2.resx">
+      <DependentUpon>201610201500372_Statistics_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
