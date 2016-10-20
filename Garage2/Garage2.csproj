@@ -150,6 +150,10 @@
     <Compile Include="Migrations\201610181232537_Receipt_2.Designer.cs">
       <DependentUpon>201610181232537_Receipt_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610200845470_spotnr.cs" />
+    <Compile Include="Migrations\201610200845470_spotnr.Designer.cs">
+      <DependentUpon>201610200845470_spotnr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\QueryObj.cs" />
     <Compile Include="Models\Vehicle.cs" />
@@ -223,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610181232537_Receipt_2.resx">
       <DependentUpon>201610181232537_Receipt_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610200845470_spotnr.resx">
+      <DependentUpon>201610200845470_spotnr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

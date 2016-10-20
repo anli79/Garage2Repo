@@ -21,7 +21,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "Boeing",
-                    Model = "747"
+                    Model = "747",
+                    SpotNr = 1                
                 },
                 new Vehicle {
                     RegNr = "AAA123",
@@ -30,7 +31,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "BMW",
-                    Model = "545"
+                    Model = "545",
+                    SpotNr = 2
                 },
                 new Vehicle {
                     RegNr = "ABQ444",
@@ -39,7 +41,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "Skania",
-                    Model = "747"
+                    Model = "747",
+                    SpotNr = 3
                 },
                 new Vehicle {
                     RegNr = "ABC999",
@@ -48,7 +51,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "Saab",
-                    Model = "Sonett"
+                    Model = "Sonett",
+                    SpotNr = 4
                 },
                 new Vehicle {
                     RegNr = "ACC222",
@@ -57,7 +61,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "VW",
-                    Model = "Bubbla"
+                    Model = "Bubbla",
+                    SpotNr = 5
                 },
                 new Vehicle {
                     RegNr = "EFG456",
@@ -66,7 +71,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 6,
                     Brand = "Scania",
-                    Model = "P42"
+                    Model = "P42",
+                    SpotNr = 6
                 },
 
                 new Vehicle {
@@ -76,7 +82,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "Boeing",
-                    Model = "747"
+                    Model = "747",
+                    SpotNr = 7
                 },
                 new Vehicle {
                     RegNr = "AAF123",
@@ -85,7 +92,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "BMW",
-                    Model = "545"
+                    Model = "545",
+                    SpotNr = 8
                 },
                 new Vehicle {
                     RegNr = "ZBQ444",
@@ -94,7 +102,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "Skania",
-                    Model = "747"
+                    Model = "747",
+                    SpotNr = 9
                 },
                 new Vehicle {
                     RegNr = "ZBC999",
@@ -103,7 +112,9 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "Ford",
-                    Model = "Fiesta"
+                    Model = "Fiesta",
+                    SpotNr = 10
+
                 },
                 new Vehicle {
                     RegNr = "ZCC222",
@@ -112,7 +123,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "VW",
-                    Model = "Bubbla"
+                    Model = "Bubbla",
+                    SpotNr = 11
                 },
                 new Vehicle {
                     RegNr = "EBQ444",
@@ -121,7 +133,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 6,
                     Brand = "Skania",
-                    Model = "747"
+                    Model = "747",
+                    SpotNr = 12
                 },
                 new Vehicle {
                     RegNr = "EFG999",
@@ -130,7 +143,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 8,
                     Brand = "Ford",
-                    Model = "Fiesta"
+                    Model = "Fiesta",
+                    SpotNr = 13
                 },
                 new Vehicle {
                     RegNr = "EEE222",
@@ -139,7 +153,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 3,
                     Brand = "VW",
-                    Model = "Bubbla"
+                    Model = "Bubbla",
+                    SpotNr = 14
                 },
                 new Vehicle {
                     RegNr = "HIJ789",
@@ -148,7 +163,8 @@ namespace Garage2.Migrations {
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
                     Brand = "BMW",
-                    Model = "M5"
+                    Model = "M5",
+                    SpotNr = 15
                 });
         }
     }

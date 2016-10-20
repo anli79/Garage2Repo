@@ -13,6 +13,10 @@ namespace Garage2.Controllers {
     public class VehiclesController : Controller {
         private VehicleDBContext db = new VehicleDBContext();
 
+        public int NrOfSpots { get { return 100; } }
+
+
+
         // GET: Vehicles
         public ActionResult Index(string sort) {
             var model = db.Vehicles.OrderBy(m => m.RegNr);
@@ -65,6 +69,7 @@ namespace Garage2.Controllers {
         public ActionResult Create([Bind(Include = "Id,Type,RegNr,Color,CheckInTime,Tyres,Brand,Model")] Vehicle vehicle) {
             if (ModelState.IsValid) {
                 vehicle.CheckInTime = DateTime.Now;
+                vehicle.SpotNr = NextFreeSpot();
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -133,7 +138,6 @@ namespace Garage2.Controllers {
         public ActionResult SearchVehicles(QueryObj queryObj) {
             // return RedirectToAction("Index");
             return RedirectToAction("SearchResult", queryObj);
-
         }
 
         // GET: Vehicles
@@ -157,6 +161,15 @@ namespace Garage2.Controllers {
             }
 
             return View(query.OrderBy(v => v.RegNr).ToList()); // Always sort by regnr
+        }
+
+        public int NextFreeSpot() {
+            for (int i=1; i < this.NrOfSpots+1; i++) {
+                if (db.Vehicles.Where(v => v.SpotNr == i).FirstOrDefault() == null) {
+                    return i;
+                }
+            }
+            return 0; // if the garage is full
         }
 
         protected override void Dispose(bool disposing) {
