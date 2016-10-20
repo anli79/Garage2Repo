@@ -9,15 +9,23 @@
 <table class="table">
     <tr>
         <th>
-            <a href="?sort=length">
+            <a href="?sort=type">
                 @Html.DisplayNameFor(model => model.Type)
             </a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RegNr)
+            <a href="?sort=regnr">
+
+                @Html.DisplayNameFor(model => model.RegNr)
+            </a>
+
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Color)
+            <a href="?sort=color">
+
+                @Html.DisplayNameFor(model => model.Color)
+            </a>
+
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ParkingTime)
