@@ -32,6 +32,10 @@ namespace Garage2.Controllers {
             return View(model.ToList());
         }
 
+        public ActionResult Statistics() {
+            return View();
+        }
+
         // GET: Receipt
         public ActionResult Receipt(Vehicle vehicle) {
             if (vehicle == null) {
@@ -129,15 +133,12 @@ namespace Garage2.Controllers {
 
         // Post: Vehicles/SearchVehicles
         [HttpPost]
-        // public ActionResult SearchVehicles([Bind(Include = "Id,Type,RegNr,Color,CheckInTime,Tyres,Brand,Model")] Vehicle vehicle) {
         public ActionResult SearchVehicles(QueryObj queryObj) {
-            // return RedirectToAction("Index");
             return RedirectToAction("SearchResult", queryObj);
-
         }
 
         // GET: Vehicles
-        public ActionResult SearchResult(string sort, QueryObj queryObj) {
+        public ActionResult SearchResult(QueryObj queryObj) {
             var query = db.Vehicles.Where(v => true);
         
             if (queryObj.Type != null) {
