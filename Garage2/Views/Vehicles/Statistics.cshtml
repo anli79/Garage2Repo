@@ -9,54 +9,64 @@
 
 @*<h2>Antal bilar @ViewBag.Antalbilar</h2>*@
 
-<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NrOfCars)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NrOfBusses)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NrOfBoats)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NrOfAirplanes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NrOfMotorcycles)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NrOfWheels)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PriceAllVehicles)
-            </th>
-            <th></th>
-        </tr>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NrOfCars)
+        </dt>
 
-        <tr>
-            <td>
-                @Html.DisplayFor(model => model.NrOfCars)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.NrOfBusses)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.NrOfBoats)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.NrOfAirplanes)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.NrOfMotorcycles)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.NrOfWheels)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.PriceAllVehicles)
-            </td>
-        </tr>
+        <dd>
+            @Html.DisplayFor(model => model.NrOfCars)
+        </dd>
 
-    </table>
+        <dt>
+            @Html.DisplayNameFor(model => model.NrOfBusses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrOfBusses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrOfBoats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrOfBoats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrOfAirplanes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrOfAirplanes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrOfMotorcycles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrOfMotorcycles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrOfWheels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrOfWheels)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceAllVehicles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceAllVehicles) kr
+        </dd>
+
+    </dl>
+</div>
