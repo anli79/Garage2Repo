@@ -181,7 +181,6 @@ namespace Garage2.Controllers {
             return RedirectToAction("Receipt", vehicle);
         }
 
-
         // GET: Vehicles/SearchVehicles
         public ActionResult SearchVehicles() {
             return View();
