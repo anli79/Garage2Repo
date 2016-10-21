@@ -13,16 +13,14 @@ namespace Garage2.Controllers {
     public class VehiclesController : Controller {
         private VehicleDBContext db = new VehicleDBContext();
 
-        public int NrOfSpots { get { return 100; } }
-
-
+        private int NrOfSpots = 18;
 
         // GET: Vehicles
         public ActionResult Index(string sort) {
             var model = db.Vehicles.OrderBy(m => m.RegNr);
 
             if (sort == "type") {
-                model = model.OrderBy(m => m.Type);
+                    model = model.OrderBy(m => m.Type);
             }
 
             if (sort == "regnr") {
@@ -32,6 +30,13 @@ namespace Garage2.Controllers {
             if (sort == "color") {
                 model = model.OrderBy(m => m.Color);
             }
+
+            if (sort == "spotnr") {
+                model = model.OrderBy(m => m.SpotNr);
+            }
+
+
+            ViewBag.FreeSpots = FreeSpots();
 
             return View(model.ToList());
         }
@@ -62,7 +67,12 @@ namespace Garage2.Controllers {
 
         // GET: Vehicles/Create
         public ActionResult Create() {
-            return View();
+            if (GarageIsFull()) {
+                return RedirectToAction("FullGarage");
+            } else {
+                ViewBag.FreeSpots = FreeSpots();
+                return View();
+            }
         }
 
         // POST: Vehicles/Create
@@ -81,6 +91,12 @@ namespace Garage2.Controllers {
 
             return View(vehicle);
         }
+
+        public ActionResult FullGarage() {
+            return View();
+        }
+
+
 
         // GET: Vehicles/Edit/5
         public ActionResult Edit(int? id) {
@@ -145,7 +161,7 @@ namespace Garage2.Controllers {
         // GET: Vehicles
         public ActionResult SearchResult(QueryObj queryObj) {
             var query = db.Vehicles.Where(v => true);
-        
+
             if (queryObj.Type != null) {
                 query = query.Where(v => v.Type == queryObj.Type);
             }
@@ -165,13 +181,33 @@ namespace Garage2.Controllers {
             return View(query.OrderBy(v => v.RegNr).ToList()); // Always sort by regnr
         }
 
-        public int NextFreeSpot() {
-            for (int i=1; i < this.NrOfSpots+1; i++) {
-                if (db.Vehicles.Where(v => v.SpotNr == i).FirstOrDefault() == null) {
-                    return i;
-                }
+        //private int NextFreeSpot() {
+        //    var query = db.Vehicles.Where(v => v != null);
+        //    for (int i = 1; i < this.NrOfSpots + 1; i++) {
+        //        if (query.FirstOrDefault(v => v.SpotNr == i) == null) {
+        //            if (query.FirstOrDefault(v => v.SpotNr == i+1) == null) {
+        //                return i;
+        //            }
+        //        }
+        //    }
+        //    return 0; // if the garage is full
+        //}
+
+        private int NextFreeSpot() {
+            var query = db.Vehicles.Where(v => v != null);
+            for (int i = 1; i < this.NrOfSpots + 1; i++) {
+                if (!query.Where(v => v.SpotNr == i).Any())
+                        return i;
             }
             return 0; // if the garage is full
+        }
+
+        private int FreeSpots() {
+            return NrOfSpots - db.Vehicles.Count();
+        }
+
+        private bool GarageIsFull() {
+            return (FreeSpots() < 1);
         }
 
         protected override void Dispose(bool disposing) {

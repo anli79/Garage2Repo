@@ -4,68 +4,64 @@
     ViewBag.Title = "Garage";
 }
 
-<h2>Alla fordon</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            <a href="?sort=type">
-                @Html.DisplayNameFor(model => model.Type)
-            </a>
-        </th>
-        <th>
-            <a href="?sort=regnr">
+<h2 style="text-align:left; float:left;">Alla fordon</h2>
 
-                @Html.DisplayNameFor(model => model.RegNr)
-            </a>
+<h3 style="text-align:right;">Lediga platser: @ViewBag.FreeSpots</h3>
 
-        </th>
-        <th>
-            <a href="?sort=color">
-
-                @Html.DisplayNameFor(model => model.Color)
-            </a>
-
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ParkingTime)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.SpotNr)
-        </th>
-
-
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model) {
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegNr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParkingTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpotNr)
-            </td>
+            <th>
+                <a href="?sort=type">
+                    @Html.DisplayNameFor(model => model.Type)
+                </a>
+            </th>
+            <th>
+                <a href="?sort=regnr">
+                    @Html.DisplayNameFor(model => model.RegNr)
+                </a>
 
-            <td>
-                @Html.ActionLink("Detaljer", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Checka ut", "Delete", new { id = item.Id })
+            </th>
+            <th>
+                <a href="?sort=color">
+                    @Html.DisplayNameFor(model => model.Color)
+                </a>
 
-
-            </td>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParkingTime)
+            </th>
+            <th>
+                <a href="?sort=spotnr">
+                    @Html.DisplayNameFor(model => model.SpotNr)
+                </a>
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegNr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParkingTime)
+                </td>
+                <td style="text-align:center;width:18px">
+                    @Html.DisplayFor(modelItem => item.SpotNr)
+                </td>
+                <td>
+                    @Html.ActionLink("Detaljer", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Checka ut", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
 
