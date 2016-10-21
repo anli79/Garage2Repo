@@ -62,16 +62,6 @@ namespace Garage2.Models {
 
         [Display(Name = "Parkeringplats")]
         public int SpotNr { get; set; }
-
-        //public int NrOfCars { get; set; }
-        //public int NrOfBusses { get; set; }
-        //public int NrOfBoats { get; set; }
-        //public int NrOfAirplanes { get; set; }
-        //public int NrOfMotorcycles { get; set; }
-
-        //public int NrOfWheels { get; set; }
-
-        //public int PriceAllVehicles { get; set; }
     }
 
     public enum VehicleType {

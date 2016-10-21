@@ -48,7 +48,6 @@ namespace Garage2.Controllers {
 
             // Count number of cars
             statistics.NrOfCars = vehicles.Where(v => v.Type == VehicleType.Bil).Count();
-            //ViewBag.Antalbilar = statistics.NrOfCars;
 
             // Count number of busses
             statistics.NrOfBusses = vehicles.Where(v => v.Type == VehicleType.Buss).Count();
