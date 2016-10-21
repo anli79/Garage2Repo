@@ -14,6 +14,7 @@ namespace Garage2.Controllers {
         private VehicleDBContext db = new VehicleDBContext();
 
         private int NrOfSpots = 18;
+        private int PricePerHour = 60;
 
         // GET: Vehicles
         public ActionResult Index(string sort) {
@@ -35,7 +36,6 @@ namespace Garage2.Controllers {
                 model = model.OrderBy(m => m.SpotNr);
             }
 
-
             ViewBag.FreeSpots = FreeSpots();
 
             return View(model.ToList());
@@ -48,7 +48,7 @@ namespace Garage2.Controllers {
 
             // Count number of cars
             statistics.NrOfCars = db.Vehicles.Where(v => v.Type == VehicleType.Bil).Count();
-            ViewBag.Antalbilar = statistics.NrOfCars;
+            //ViewBag.Antalbilar = statistics.NrOfCars;
 
             // Count number of busses
             statistics.NrOfBusses = db.Vehicles.Where(v => v.Type == VehicleType.Buss).Count();
@@ -68,7 +68,6 @@ namespace Garage2.Controllers {
             // Count total price for all vehicles in the garage
             foreach (var vehicle in vehicles) {
                 duration.Add(DateTime.Now - vehicle.CheckInTime);
-                //TimeSpan duration = DateTime.Now - vehicle.CheckInTime;  
             }
 
             var totalTime = TimeSpan.Zero;
@@ -76,29 +75,8 @@ namespace Garage2.Controllers {
                 totalTime = totalTime + currentValue;
             }
 
-            //var hours = totalTime.Days * 24 + totalTime.Hours;
-            //var minutes = totalTime.Minutes;
-
-            int pricePerHour = 60;
-            statistics.PriceAllVehicles = ((totalTime.Days * 24 + totalTime.Hours) * pricePerHour) + (totalTime.Minutes % pricePerHour);
-
-            //int hours = 0;
-            //int minutes = 0;
             //int pricePerHour = 60;
-            //for (int i = 0; i < duration.Count; i++) {
-            //    hours += (duration.ElementAt(i). * 24 + duration.ElementAt(i).Hours);
-            //    minutes += duration.ElementAt(i).Minutes;
-            //}
-
-            //var result = TimeSpan.FromHours()
-            //TimeSpan test = new TimeSpan()
-            //statistics.PriceAllVehicles = (hours * pricePerHour) + (minutes. % pricePerHour);
-            //var hours = duration.
-            //TimeSpan totDuration = duration.Sum();
-            //var hours = duration.Days * 24 + duration.Hours;
-            //var minutes = duration.Minutes;
-
-
+            statistics.PriceAllVehicles = ((totalTime.Days * 24 + totalTime.Hours) * PricePerHour) + (totalTime.Minutes % PricePerHour);
 
             return View(statistics);
         }
