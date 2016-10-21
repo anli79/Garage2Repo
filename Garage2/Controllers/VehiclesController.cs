@@ -47,23 +47,23 @@ namespace Garage2.Controllers {
             List<TimeSpan> duration = new List<TimeSpan>();
 
             // Count number of cars
-            statistics.NrOfCars = db.Vehicles.Where(v => v.Type == VehicleType.Bil).Count();
+            statistics.NrOfCars = vehicles.Where(v => v.Type == VehicleType.Bil).Count();
             //ViewBag.Antalbilar = statistics.NrOfCars;
 
             // Count number of busses
-            statistics.NrOfBusses = db.Vehicles.Where(v => v.Type == VehicleType.Buss).Count();
+            statistics.NrOfBusses = vehicles.Where(v => v.Type == VehicleType.Buss).Count();
 
             // Count number of boats
-            statistics.NrOfBoats = db.Vehicles.Where(v => v.Type == VehicleType.Båt).Count();
+            statistics.NrOfBoats = vehicles.Where(v => v.Type == VehicleType.Båt).Count();
 
             // Count number of airplanes
-            statistics.NrOfAirplanes = db.Vehicles.Where(v => v.Type == VehicleType.Flygplan).Count();
+            statistics.NrOfAirplanes = vehicles.Where(v => v.Type == VehicleType.Flygplan).Count();
 
             // Count number of motorcycles
-            statistics.NrOfMotorcycles = db.Vehicles.Where(v => v.Type == VehicleType.Motorcykel).Count();
+            statistics.NrOfMotorcycles = vehicles.Where(v => v.Type == VehicleType.Motorcykel).Count();
 
             // Count number of wheels in the garage
-            statistics.NrOfWheels = db.Vehicles.Select(v => v.Tyres).Sum();
+            statistics.NrOfWheels = vehicles.Select(v => v.Tyres).Sum();
 
             // Count total price for all vehicles in the garage
             foreach (var vehicle in vehicles) {
