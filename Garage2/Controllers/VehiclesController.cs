@@ -48,7 +48,6 @@ namespace Garage2.Controllers {
 
             // Count number of cars
             statistics.NrOfCars = vehicles.Where(v => v.Type == VehicleType.Bil).Count();
-            //ViewBag.Antalbilar = statistics.NrOfCars;
 
             // Count number of busses
             statistics.NrOfBusses = vehicles.Where(v => v.Type == VehicleType.Buss).Count();
@@ -216,18 +215,6 @@ namespace Garage2.Controllers {
 
             return View(query.OrderBy(v => v.RegNr).ToList()); // Always sort by regnr
         }
-
-        //private int NextFreeSpot() {
-        //    var query = db.Vehicles.Where(v => v != null);
-        //    for (int i = 1; i < this.NrOfSpots + 1; i++) {
-        //        if (query.FirstOrDefault(v => v.SpotNr == i) == null) {
-        //            if (query.FirstOrDefault(v => v.SpotNr == i+1) == null) {
-        //                return i;
-        //            }
-        //        }
-        //    }
-        //    return 0; // if the garage is full
-        //}
 
         private int NextFreeSpot() {
             var query = db.Vehicles.Where(v => v != null);
