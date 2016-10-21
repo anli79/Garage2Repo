@@ -162,6 +162,10 @@
     <Compile Include="Migrations\201610201500372_Statistics_2.Designer.cs">
       <DependentUpon>201610201500372_Statistics_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610210956201_incheckningstid.cs" />
+    <Compile Include="Migrations\201610210956201_incheckningstid.Designer.cs">
+      <DependentUpon>201610210956201_incheckningstid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\QueryObj.cs" />
     <Compile Include="Models\Statistics.cs" />
@@ -247,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610201500372_Statistics_2.resx">
       <DependentUpon>201610201500372_Statistics_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610210956201_incheckningstid.resx">
+      <DependentUpon>201610210956201_incheckningstid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

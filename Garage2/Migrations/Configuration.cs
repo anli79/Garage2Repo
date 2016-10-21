@@ -46,7 +46,7 @@ namespace Garage2.Migrations {
                 },
                 new Vehicle {
                     RegNr = "ABC999",
-                    Type = VehicleType.Bil,
+                    Type = VehicleType.Motorcykel,
                     Color = "Blå",
                     CheckInTime = DateTime.Now,
                     Tyres = 4,
@@ -87,11 +87,11 @@ namespace Garage2.Migrations {
                 },
                 new Vehicle {
                     RegNr = "AAF123",
-                    Type = VehicleType.Bil,
+                    Type = VehicleType.Båt,
                     Color = "Röd",
                     CheckInTime = DateTime.Now,
-                    Tyres = 4,
-                    Brand = "BMW",
+                    Tyres = 0,
+                    Brand = "SeaCraft",
                     Model = "545",
                     SpotNr = 8
                 },

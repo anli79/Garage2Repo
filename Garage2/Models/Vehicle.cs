@@ -22,7 +22,7 @@ namespace Garage2.Models {
         [Display(Name = "Färg")]
         public string Color { get; set; }
 
-        [Display(Name = "In-checkningstid")]
+        [Display(Name = "Incheckningstid")]
         public DateTime CheckInTime { get; set; }
 
         [Display(Name = "Parkeringstid")]

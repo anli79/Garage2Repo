@@ -35,7 +35,6 @@ namespace Garage2.Controllers {
                 model = model.OrderBy(m => m.SpotNr);
             }
 
-
             ViewBag.FreeSpots = FreeSpots();
 
             return View(model.ToList());

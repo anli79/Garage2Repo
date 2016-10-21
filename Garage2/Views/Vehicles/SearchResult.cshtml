@@ -18,16 +18,10 @@
             @Html.DisplayNameFor(model => model.Color)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CheckInTime)
+            @Html.DisplayNameFor(model => model.ParkingTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tyres)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Model)
+            @Html.DisplayNameFor(model => model.SpotNr)
         </th>
         <th></th>
     </tr>
@@ -44,16 +38,10 @@
                 @Html.DisplayFor(modelItem => item.Color)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CheckInTime)
+                @Html.DisplayFor(modelItem => item.ParkingTime)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tyres)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
+            <td style="text-align:center;width:18px">
+                @Html.DisplayFor(modelItem => item.SpotNr)
             </td>
             <td>
                 @Html.ActionLink("Detaljer", "Details", new { id = item.Id }) |
@@ -61,5 +49,9 @@
             </td>
         </tr>
     }
-
 </table>
+
+<div>
+    @Html.ActionLink("Ny sökning", "SearchVehicles")
+</div>
+
