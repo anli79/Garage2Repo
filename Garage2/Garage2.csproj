@@ -129,6 +129,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\Vehicles1Controller.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="DAL\VehicleDBContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,6 +139,10 @@
     <Compile Include="Migrations\201610261201327_m1.cs" />
     <Compile Include="Migrations\201610261201327_m1.Designer.cs">
       <DependentUpon>201610261201327_m1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610261423428_m2.cs" />
+    <Compile Include="Migrations\201610261423428_m2.Designer.cs">
+      <DependentUpon>201610261423428_m2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
@@ -192,6 +198,16 @@
     <Content Include="Views\Vehicles\Receipt.cshtml" />
     <Content Include="Views\Vehicles\Statistics.cshtml" />
     <Content Include="Views\Vehicles\FullGarage.cshtml" />
+    <Content Include="Views\Vehicles1\Create.cshtml" />
+    <Content Include="Views\Vehicles1\Delete.cshtml" />
+    <Content Include="Views\Vehicles1\Details.cshtml" />
+    <Content Include="Views\Vehicles1\Edit.cshtml" />
+    <Content Include="Views\Vehicles1\Index.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -207,6 +223,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610261201327_m1.resx">
       <DependentUpon>201610261201327_m1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610261423428_m2.resx">
+      <DependentUpon>201610261423428_m2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

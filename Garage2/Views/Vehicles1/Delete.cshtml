@@ -10,6 +10,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.Name)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.VehicleType.Type)
         </dt>
 
@@ -65,19 +73,22 @@
             @Html.DisplayFor(model => model.Model)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.SpotNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpotNr)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Checka ut" class="btn btn-default" />
-            </div>
+            <input type="submit" value="Checka ut" class="btn btn-default" /> |
+            @Html.ActionLink("Visa alla fordon", "Index")
         </div>
     }
-</div>
-
-<div>
-    @Html.ActionLink("Visa alla fordon", "Index")
 </div>

@@ -60,9 +60,11 @@ namespace Garage2.Models {
         [Display(Name = "Parkeringplats")]
         public int SpotNr { get; set; }
 
+        [Display(Name = "Ägare")]
         public int MemberId { get; set; }
         public virtual Member Member { get; set; }
 
+        [Display(Name = "Fordonstyp")]
         public int VehicleTypeId { get; set; }
         public virtual VehicleType VehicleType { get; set; }
     }

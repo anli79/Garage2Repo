@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Garage2.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Garage";
+}
+
+<h2 style="text-align:left; float:left;">Alla fordon</h2>
+
+<h3 style="text-align:right;">Lediga platser: @ViewBag.FreeSpots</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType.Type)
+        </th>
+        <th>
+            <a href="?sort=regnr">
+                @Html.DisplayNameFor(model => model.RegNr)
+            </a>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckInTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpotNr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleType.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegNr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckInTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpotNr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.Name)
+            </td>
+
+            <td>
+                @Html.ActionLink("Detaljer", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Checka ut", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
