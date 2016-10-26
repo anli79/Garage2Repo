@@ -9,7 +9,7 @@ namespace Garage2.Models {
         public int Id { get; set; }
 
         [Display(Name = "Fordonstyp")]
-        public VehicleType? Type { get; set; }
+        public string Type { get; set; }
 
         [Display(Name = "Regnr")]
         public string RegNr { get; set; }

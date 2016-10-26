@@ -21,7 +21,7 @@ namespace Garage2.Controllers {
             var model = db.Vehicles.OrderBy(m => m.RegNr);
 
             if (sort == "type") {
-                    model = model.OrderBy(m => m.Type);
+                    // model = model.OrderBy(m => m.Type);
             }
 
             if (sort == "regnr") {
@@ -47,19 +47,19 @@ namespace Garage2.Controllers {
             List<TimeSpan> duration = new List<TimeSpan>();
 
             // Count number of cars
-            statistics.NrOfCars = vehicles.Where(v => v.Type == VehicleType.Bil).Count();
+            statistics.NrOfCars = vehicles.Where(v => v.VehicleType.Type == "Bil").Count();
 
             // Count number of busses
-            statistics.NrOfBusses = vehicles.Where(v => v.Type == VehicleType.Buss).Count();
+            statistics.NrOfBusses = vehicles.Where(v => v.VehicleType.Type == "Buss").Count();
 
             // Count number of boats
-            statistics.NrOfBoats = vehicles.Where(v => v.Type == VehicleType.Båt).Count();
+            statistics.NrOfBoats = vehicles.Where(v => v.VehicleType.Type == "Båt").Count();
 
             // Count number of airplanes
-            statistics.NrOfAirplanes = vehicles.Where(v => v.Type == VehicleType.Flygplan).Count();
+            statistics.NrOfAirplanes = vehicles.Where(v => v.VehicleType.Type == "Flygplan").Count();
 
             // Count number of motorcycles
-            statistics.NrOfMotorcycles = vehicles.Where(v => v.Type == VehicleType.Motorcykel).Count();
+            statistics.NrOfMotorcycles = vehicles.Where(v => v.VehicleType.Type == "Motorcykel").Count();
 
             // Count number of wheels in the garage
             statistics.NrOfWheels = vehicles.Select(v => v.Tyres).Sum();
@@ -197,7 +197,7 @@ namespace Garage2.Controllers {
             var query = db.Vehicles.Where(v => true);
 
             if (queryObj.Type != null) {
-                query = query.Where(v => v.Type == queryObj.Type);
+                query = query.Where(v => v.VehicleType.Type == queryObj.Type);
             }
 
             if (queryObj.RegNr != null) {

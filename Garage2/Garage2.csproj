@@ -134,42 +134,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610170936081_Init.cs" />
-    <Compile Include="Migrations\201610170936081_Init.Designer.cs">
-      <DependentUpon>201610170936081_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610171240337_diverse.cs" />
-    <Compile Include="Migrations\201610171240337_diverse.Designer.cs">
-      <DependentUpon>201610171240337_diverse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610181219264_Receipt.cs" />
-    <Compile Include="Migrations\201610181219264_Receipt.Designer.cs">
-      <DependentUpon>201610181219264_Receipt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610181232537_Receipt_2.cs" />
-    <Compile Include="Migrations\201610181232537_Receipt_2.Designer.cs">
-      <DependentUpon>201610181232537_Receipt_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610200845470_spotnr.cs" />
-    <Compile Include="Migrations\201610200845470_spotnr.Designer.cs">
-      <DependentUpon>201610200845470_spotnr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610201154239_Statistics.cs" />
-    <Compile Include="Migrations\201610201154239_Statistics.Designer.cs">
-      <DependentUpon>201610201154239_Statistics.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610201500372_Statistics_2.cs" />
-    <Compile Include="Migrations\201610201500372_Statistics_2.Designer.cs">
-      <DependentUpon>201610201500372_Statistics_2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610210956201_incheckningstid.cs" />
-    <Compile Include="Migrations\201610210956201_incheckningstid.Designer.cs">
-      <DependentUpon>201610210956201_incheckningstid.cs</DependentUpon>
+    <Compile Include="Migrations\201610261201327_m1.cs" />
+    <Compile Include="Migrations\201610261201327_m1.Designer.cs">
+      <DependentUpon>201610261201327_m1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\QueryObj.cs" />
     <Compile Include="Models\Statistics.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -231,29 +205,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610170936081_Init.resx">
-      <DependentUpon>201610170936081_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610171240337_diverse.resx">
-      <DependentUpon>201610171240337_diverse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610181219264_Receipt.resx">
-      <DependentUpon>201610181219264_Receipt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610181232537_Receipt_2.resx">
-      <DependentUpon>201610181232537_Receipt_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610200845470_spotnr.resx">
-      <DependentUpon>201610200845470_spotnr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610201154239_Statistics.resx">
-      <DependentUpon>201610201154239_Statistics.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610201500372_Statistics_2.resx">
-      <DependentUpon>201610201500372_Statistics_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610210956201_incheckningstid.resx">
-      <DependentUpon>201610210956201_incheckningstid.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610261201327_m1.resx">
+      <DependentUpon>201610261201327_m1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

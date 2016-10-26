@@ -8,9 +8,6 @@ namespace Garage2.Models {
     public class Vehicle {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Fordonstyp måste anges!")]
-        [Display(Name = "Fordonstyp")]      
-        public VehicleType Type { get; set; }
 
         [Required(ErrorMessage = "Regnr måste anges!")]
         [MinLength(6, ErrorMessage = "Regnr måste vara minst 6 tecken långt!")]
@@ -62,13 +59,12 @@ namespace Garage2.Models {
 
         [Display(Name = "Parkeringplats")]
         public int SpotNr { get; set; }
+
+        public int MemberId { get; set; }
+        public virtual Member Member { get; set; }
+
+        public int VehicleTypeId { get; set; }
+        public virtual VehicleType VehicleType { get; set; }
     }
 
-    public enum VehicleType {
-        Bil,
-        Buss,
-        Båt,
-        Flygplan,
-        Motorcykel
-    }
 }
