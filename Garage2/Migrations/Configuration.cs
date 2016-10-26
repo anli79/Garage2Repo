@@ -25,7 +25,9 @@ namespace Garage2.Migrations {
             context.SaveChanges();
 
             var members = new Member[] {
-                new Member() { Name = "Pelle Pettersson"}
+                new Member() { Name = "Pelle Pettersson"},
+                new Member() { Name = "Anders And"},
+                new Member() { Name = "Kalle Kula"}
         };
 
             context.Members.AddOrUpdate(m => m.Name, members);
@@ -44,29 +46,32 @@ namespace Garage2.Migrations {
                     Brand = "Boeing",
                     Model = "747",
                     SpotNr = 1
-                });
+                },
+
+            new Vehicle {
+                RegNr = "AAA123",
+                VehicleTypeId = vehicleTypes[2].Id,
+                MemberId = members[1].Id,
+                Color = "Röd",
+                CheckInTime = DateTime.Now,
+                Tyres = 4,
+                Brand = "BMW",
+                Model = "545",
+                SpotNr = 2
+            },
+            new Vehicle {
+                RegNr = "ABQ444",
+                VehicleTypeId = vehicleTypes[2].Id,
+                MemberId = members[1].Id,
+                Color = "Grön",
+                CheckInTime = DateTime.Now,
+                Tyres = 4,
+                Brand = "Skania",
+                Model = "747",
+                SpotNr = 3
+            });
             context.SaveChanges();
 
-            //new Vehicle {
-            //    RegNr = "AAA123",
-            //    Type = VehicleType.Bil,
-            //    Color = "Röd",
-            //    CheckInTime = DateTime.Now,
-            //    Tyres = 4,
-            //    Brand = "BMW",
-            //    Model = "545",
-            //    SpotNr = 2
-            //},
-            //new Vehicle {
-            //    RegNr = "ABQ444",
-            //    Type = VehicleType.Buss,
-            //    Color = "Grön",
-            //    CheckInTime = DateTime.Now,
-            //    Tyres = 4,
-            //    Brand = "Skania",
-            //    Model = "747",
-            //    SpotNr = 3
-            //},
             //new Vehicle {
             //    RegNr = "ABC999",
             //    Type = VehicleType.Motorcykel,

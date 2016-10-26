@@ -13,7 +13,7 @@
         <tr>
             <th>
                 <a href="?sort=type">
-                    @Html.DisplayNameFor(model => model.Type)
+                    @Html.DisplayNameFor(model => model.VehicleType.Type)
                 </a>
             </th>
             <th>
@@ -42,7 +42,7 @@
         @foreach (var item in Model) {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Type)
+                    @Html.DisplayFor(modelItem => item.VehicleType.Type)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.RegNr)
