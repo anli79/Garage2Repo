@@ -20,6 +20,10 @@
         <th>
             @Html.DisplayNameFor(model => model.PNr)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActiveMemberShip)
+        </th>
+
         <th></th>
     </tr>
 
@@ -34,6 +38,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.PNr)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActiveMemberShip)
+        </td>
+
         <td>
             @Html.ActionLink("Ändra", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Detaljer", "Details", new { id=item.Id }) |
