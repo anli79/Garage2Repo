@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201610261423428_m2.Designer.cs">
       <DependentUpon>201610261423428_m2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610270656353_ändringar i bl a member-objektet.cs" />
+    <Compile Include="Migrations\201610270656353_ändringar i bl a member-objektet.Designer.cs">
+      <DependentUpon>201610270656353_ändringar i bl a member-objektet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\QueryObj.cs" />
@@ -226,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610261423428_m2.resx">
       <DependentUpon>201610261423428_m2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610270656353_ändringar i bl a member-objektet.resx">
+      <DependentUpon>201610270656353_ändringar i bl a member-objektet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

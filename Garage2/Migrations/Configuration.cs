@@ -11,13 +11,13 @@ namespace Garage2.Migrations {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Garage2.DAL.VehicleDBContext context) {
+        protected override void Seed(Garage2.DAL.VehicleDBContext context) { 
 
             var vehicleTypes = new VehicleType[] {
                 new VehicleType() { Type = "Bil"},
                 new VehicleType() { Type = "Buss"},
-                new VehicleType() { Type = "Flygplan"},
                 new VehicleType() { Type = "Båt"},
+                new VehicleType() { Type = "Flygplan"},
                 new VehicleType() { Type = "Motorcykel"}
             };
 
@@ -25,9 +25,11 @@ namespace Garage2.Migrations {
             context.SaveChanges();
 
             var members = new Member[] {
-                new Member() { Name = "Pelle Pettersson"},
-                new Member() { Name = "Anders And"},
-                new Member() { Name = "Kalle Kula"}
+                new Member() { Name = "Arne Anka", Address = "Ankvägen 6", PNr = "710809-6972", ActiveMemberShip = true},
+                new Member() { Name = "Putte Kock", Address = "Kocksgatan 1", PNr = "810603-4974", ActiveMemberShip = true},
+                new Member() { Name = "Kalle Kula", Address = "Kulgatan 2", PNr = "910703-8776", ActiveMemberShip = true},
+                new Member() { Name = "Krille Krokodil", Address = "Ekorrstigen 13", PNr = "840703-8776", ActiveMemberShip = false},
+                new Member() { Name = "Nisse Hult", Address = "Bergtallsvägen 17 2", PNr = "930903-8776", ActiveMemberShip = true}
         };
 
             context.Members.AddOrUpdate(m => m.Name, members);
