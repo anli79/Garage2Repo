@@ -155,6 +155,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\QueryObj.cs" />
+    <Compile Include="Models\Receipt.cs" />
     <Compile Include="Models\Statistics.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehicleType.cs" />
@@ -218,6 +219,8 @@
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\EditVariant.cshtml" />
     <Content Include="Views\Vehicles1\SearchVehicles.cshtml" />
+    <Content Include="Views\Vehicles1\Receipt.cshtml" />
+    <Content Include="Views\Vehicles1\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
