@@ -73,7 +73,17 @@ namespace Garage2.Controllers
             if (vehicle == null) {
                 return HttpNotFound();
             }
-            return View(vehicle);
+            VehicleType vehicleType = db.VehicleTypes.Find(vehicle.VehicleTypeId);
+            Member member = db.Members.Find(vehicle.MemberId);
+            Receipt receipt = new Receipt();
+
+            receipt.Type = vehicleType.Type;
+            receipt.RegNr = vehicle.RegNr;
+            receipt.Member = member.Name;
+            receipt.ParkingTime = vehicle.ParkingTime;
+            receipt.Price = vehicle.Price;
+
+            return View(receipt);
         }
 
         // GET: Vehicles1/Details/5
