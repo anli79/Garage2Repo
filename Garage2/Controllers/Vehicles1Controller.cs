@@ -15,12 +15,17 @@ namespace Garage2.Controllers
     {
         private VehicleDBContext db = new VehicleDBContext();
 
+        private int NrOfSpots = 18;
         private int PricePerHour = 60;
 
         // GET: Vehicles1
         public ActionResult Index()
         {
             var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
+
+            ViewBag.FreeSpots = FreeSpots();
+
+
             return View(vehicles.ToList());
         }
 
@@ -91,7 +96,13 @@ namespace Garage2.Controllers
         {
             ViewBag.MemberId = new SelectList(db.Members, "Id", "Name");
             ViewBag.VehicleTypeId = new SelectList(db.VehicleTypes, "Id", "Type");
-            return View();
+
+            if (GarageIsFull()) {
+                return RedirectToAction("FullGarage");
+            } else {
+                ViewBag.FreeSpots = FreeSpots();
+                return View();
+            }
         }
 
         // POST: Vehicles1/Create
@@ -103,6 +114,8 @@ namespace Garage2.Controllers
         {
             if (ModelState.IsValid)
             {
+                vehicle.CheckInTime = DateTime.Now;
+                vehicle.SpotNr = NextFreeSpot();
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -171,8 +184,60 @@ namespace Garage2.Controllers
             Vehicle vehicle = db.Vehicles.Find(id);
             db.Vehicles.Remove(vehicle);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Receipt", vehicle);
         }
+
+        // GET: Vehicles/SearchVehicles
+        public ActionResult SearchVehicles() {
+            return View();
+        }
+
+        // Post: Vehicles/SearchVehicles
+        [HttpPost]
+        public ActionResult SearchVehicles(QueryObj queryObj) {
+            return RedirectToAction("SearchResult", queryObj);
+        }
+
+        // GET: Vehicles
+        public ActionResult SearchResult(QueryObj queryObj) {
+            var query = db.Vehicles.Where(v => true);
+
+            if (queryObj.Type != null) {
+                query = query.Where(v => v.VehicleType.Type == queryObj.Type);
+            }
+
+            if (queryObj.RegNr != null) {
+                query = query.Where(v => v.RegNr.ToLower().StartsWith(queryObj.RegNr.ToLower()));
+            }
+
+            if (queryObj.Color != null) {
+                query = query.Where(v => v.Color.ToLower().StartsWith(queryObj.Color.ToLower()));
+            }
+
+            if (queryObj.Brand != null) {
+                query = query.Where(v => v.Brand.ToLower().StartsWith(queryObj.Brand.ToLower()));
+            }
+
+            return View(query.OrderBy(v => v.RegNr).ToList()); // Always sort by regnr
+        }
+
+        private int NextFreeSpot() {
+            var query = db.Vehicles.Where(v => v != null);
+            for (int i = 1; i < this.NrOfSpots + 1; i++) {
+                if (!query.Where(v => v.SpotNr == i).Any())
+                    return i;
+            }
+            return 0; // if the garage is full
+        }
+
+        private int FreeSpots() {
+            return NrOfSpots - db.Vehicles.Count();
+        }
+
+        private bool GarageIsFull() {
+            return (FreeSpots() < 1);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
