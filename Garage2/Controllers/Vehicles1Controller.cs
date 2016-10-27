@@ -15,11 +15,60 @@ namespace Garage2.Controllers
     {
         private VehicleDBContext db = new VehicleDBContext();
 
+        private int PricePerHour = 60;
+
         // GET: Vehicles1
         public ActionResult Index()
         {
             var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
             return View(vehicles.ToList());
+        }
+
+        public ActionResult Statistics() {
+            Statistics statistics = new Statistics();
+            var vehicles = db.Vehicles.Where(v => true);
+            List<TimeSpan> duration = new List<TimeSpan>();
+
+            // Count number of cars
+            statistics.NrOfCars = vehicles.Where(v => v.VehicleType.Type == "Bil").Count();
+
+            // Count number of busses
+            statistics.NrOfBusses = vehicles.Where(v => v.VehicleType.Type == "Buss").Count();
+
+            // Count number of boats
+            statistics.NrOfBoats = vehicles.Where(v => v.VehicleType.Type == "Båt").Count();
+
+            // Count number of airplanes
+            statistics.NrOfAirplanes = vehicles.Where(v => v.VehicleType.Type == "Flygplan").Count();
+
+            // Count number of motorcycles
+            statistics.NrOfMotorcycles = vehicles.Where(v => v.VehicleType.Type == "Motorcykel").Count();
+
+            // Count number of wheels in the garage
+            statistics.NrOfWheels = vehicles.Select(v => v.Tyres).Sum();
+
+            // Count total price for all vehicles in the garage
+            foreach (var vehicle in vehicles) {
+                duration.Add(DateTime.Now - vehicle.CheckInTime);
+            }
+
+            var totalTime = TimeSpan.Zero;
+            foreach (TimeSpan currentValue in duration) {
+                totalTime = totalTime + currentValue;
+            }
+
+            //int pricePerHour = 60;
+            statistics.PriceAllVehicles = ((totalTime.Days * 24 + totalTime.Hours) * PricePerHour) + (totalTime.Minutes % PricePerHour);
+
+            return View(statistics);
+        }
+
+        // GET: Receipt
+        public ActionResult Receipt(Vehicle vehicle) {
+            if (vehicle == null) {
+                return HttpNotFound();
+            }
+            return View(vehicle);
         }
 
         // GET: Vehicles1/Details/5
