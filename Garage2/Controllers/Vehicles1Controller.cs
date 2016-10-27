@@ -42,11 +42,22 @@ namespace Garage2.Controllers
         }
 
         // GET: Vehicles1
-        public ActionResult DetailedView() {
+        public ActionResult DetailedView(string dropDownTypes, string searchString) {
             var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
 
             ViewBag.FreeSpots = FreeSpots();
 
+            var types = db.VehicleTypes.Where(v => true).Select(v => v.Type);
+
+            ViewBag.dropDownTypes = new SelectList(types);
+
+            if (!String.IsNullOrEmpty(searchString)) {
+                vehicles = vehicles.Where(v => v.RegNr.Contains(searchString));
+            }
+
+            if (!String.IsNullOrEmpty(dropDownTypes)) {
+                vehicles = vehicles.Where(v => v.VehicleType.Type == dropDownTypes);
+            }
 
             return View(vehicles.ToList());
         }

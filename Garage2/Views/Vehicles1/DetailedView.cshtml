@@ -8,6 +8,14 @@
 
 <h3 style="text-align:right;">Lediga platser: @ViewBag.FreeSpots</h3>
 
+@using (Html.BeginForm("Index", "Vehicles1", FormMethod.Get)) {
+    <p>
+        Typ: @Html.DropDownList("dropDownTypes", "All")
+        Regnr: @Html.TextBox("SearchString")
+        <span><input type="submit" value="Sök" /></span>
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
