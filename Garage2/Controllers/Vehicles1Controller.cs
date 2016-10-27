@@ -41,6 +41,16 @@ namespace Garage2.Controllers
             return View(vehicles.ToList());
         }
 
+        // GET: Vehicles1
+        public ActionResult DetailedView() {
+            var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
+
+            ViewBag.FreeSpots = FreeSpots();
+
+
+            return View(vehicles.ToList());
+        }
+
         public ActionResult Statistics() {
             Statistics statistics = new Statistics();
             var vehicles = db.Vehicles.Where(v => true);
