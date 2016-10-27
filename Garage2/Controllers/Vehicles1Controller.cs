@@ -73,6 +73,8 @@ namespace Garage2.Controllers
             if (vehicle == null) {
                 return HttpNotFound();
             }
+
+            // Create receipt
             VehicleType vehicleType = db.VehicleTypes.Find(vehicle.VehicleTypeId);
             Member member = db.Members.Find(vehicle.MemberId);
             Receipt receipt = new Receipt();
