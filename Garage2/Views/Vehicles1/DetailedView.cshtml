@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Garage2.Models.Vehicle>
+
+@{
+    ViewBag.Title = "DetailedView";
+}
+
+<h2 style="text-align:left; float:left;">Detaljerad översiktsvy</h2>
+
+<h3 style="text-align:right;">Lediga platser: @ViewBag.FreeSpots</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegNr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckInTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParkingTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tyres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpotNr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleType.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegNr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckInTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParkingTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tyres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpotNr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Ändra", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Checka ut", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Tillbaka till översiktsvy", "Index")
+</div>
