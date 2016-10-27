@@ -199,6 +199,7 @@ namespace Garage2.Controllers
             return RedirectToAction("Receipt", vehicle);
         }
 
+
         // GET: Vehicles/SearchVehicles
         public ActionResult SearchVehicles() {
             return View();
@@ -214,8 +215,8 @@ namespace Garage2.Controllers
         public ActionResult SearchResult(QueryObj queryObj) {
             var query = db.Vehicles.Where(v => true);
 
-            if (queryObj.Type != null) {
-                query = query.Where(v => v.VehicleType.Type == queryObj.Type);
+            if (queryObj.VehicleType.Type != null) {
+                query = query.Where(v => v.VehicleType.Type == queryObj.VehicleType.Type);
             }
 
             if (queryObj.RegNr != null) {

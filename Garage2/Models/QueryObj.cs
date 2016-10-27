@@ -9,7 +9,8 @@ namespace Garage2.Models {
         public int Id { get; set; }
 
         [Display(Name = "Fordonstyp")]
-        public string Type { get; set; }
+        public int VehicleTypeId { get; set; }
+        public virtual VehicleType VehicleType { get; set; }
 
         [Display(Name = "Regnr")]
         public string RegNr { get; set; }
@@ -20,6 +21,5 @@ namespace Garage2.Models {
         [Display(Name = "Märke")]
         [StringLength(10)]
         public string Brand { get; set; }
-
     }
 }
