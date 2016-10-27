@@ -54,7 +54,7 @@ namespace Garage2.Models {
 
         [Required(ErrorMessage = "Modell måste anges!")]
         [Display(Name = "Modell")]
-        [StringLength(10, ErrorMessage = "Regnr får vara högst 10 tecken långt!")]
+        [StringLength(10, ErrorMessage = "Modell får vara högst 10 tecken långt!")]
         public string Model { get; set; }
 
         [Display(Name = "Parkeringplats")]
