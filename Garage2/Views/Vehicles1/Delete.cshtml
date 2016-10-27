@@ -87,8 +87,14 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Checka ut" class="btn btn-default" /> |
-            @Html.ActionLink("Visa alla fordon", "Index")
+            <input type="submit" value="Checka ut" class="btn btn-default" />
+            @*@Html.ActionLink("Visa alla fordon", "Index")*@
         </div>
     }
+</div>
+
+<br />
+
+<div>
+    @Html.ActionLink("Visa alla fordon", "Index")
 </div>
