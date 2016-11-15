@@ -23,9 +23,11 @@ namespace Garage2.Controllers
         {
             ViewBag.FreeSpots = FreeSpots();
 
-            var types = db.VehicleTypes.Where(v => true).Select(v=>v.Type);
+            //var types = db.VehicleTypes.Where(v => true).Select(v=>v.Type);
+            var types2 = db.VehicleTypes.Select(v => v.Type);
 
-            ViewBag.dropDownTypes = new SelectList(types); 
+            //ViewBag.dropDownTypes = new SelectList(types);
+            ViewBag.dropDownTypes = new SelectList(types2); 
             
             var vehicles = db.Vehicles.Include(v => v.Member).Include(v => v.VehicleType);
 
